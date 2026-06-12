@@ -19,10 +19,11 @@ A secure, RESTful API for a blogging platform built with Node.js, Express, and M
        
     3. **Environment Variables:** 
        Create a .env file in the root directory and add the following:
+       
         PORT=3000
         MONGO_URI=your_mongodb_connection_string
         JWT_SECRET=your_super_secret_key
-    4. **Clone the repository:**
+    5. **Clone the repository:**
        ```bash
        npm run dev
 ## 2. Implemented Endpoints
@@ -34,3 +35,8 @@ A secure, RESTful API for a blogging platform built with Node.js, Express, and M
     PUT      /api/post/posts/:id           Update a post (owner only)       Yes
     DELETE   /api/post/posts/:id           Delete a post (owner only)       Yes
        
+## 3. Database Choice: MongoDB
+I chose MongoDB for this project for the following reasons:
+1. Flexibility (NoSQL): MongoDB’s document-oriented structure allows for schema evolution. Adding new features (like comments or tags) is easier without complex 2 database migrations.
+2. Scalability: Handles horizontal scaling natively, which is ideal for platforms with high-growth traffic.
+3. Performance with JSON: Since the application stack (Node.js/Express) uses JSON, MongoDB's BSON storage eliminates the need for expensive data transformation.
