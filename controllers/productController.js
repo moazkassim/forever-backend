@@ -11,7 +11,7 @@ const addProduct = async (req, res) => {
       category,
       subCategory,
       sizes,
-      bestSeller,
+      bestseller,
     } = req.body;
 
     const image1 = req.files.image1 && req.files.image1[0];
@@ -36,15 +36,18 @@ const addProduct = async (req, res) => {
       description,
       category,
       subCategory,
-      bestSeller: bestSeller === "true" ? true : false,
+      bestseller: bestseller === "true" ? true : false,
       price: Number(price),
       sizes: JSON.parse(sizes),
       image: imagesUrl,
       date: Date.now(),
     };
-    console.log(productData);
+
+   
 
     const product = new productModel(productData);
+  
+
     await product.save();
     res.json({ success: true, message: "product added" });
   } catch (error) {
